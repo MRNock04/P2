@@ -42,7 +42,7 @@
 - Zeichnen Sie fünf Minuten lang etwa alle fünf Sekunden den zeitlichen Verlauf des Drucks **jeweils bei T1 und T2** auf. 
 - Stellen Sie $p_{1}$ (**bei T1**) vor und $p_{2}$ (**bei T2**) hinter dem Rohr als Funktion der Zeit dar. 
 - Bestimmen Sie $S_{1}$ und $S_{2}$. Das zu verwendende Rohr hat einen Innendurchmesser von $d=2\,\mathrm{mm}$. Berücksichtigen Sie bei den Berechnungen, dass sich durch den Austausch des Metallwellschlauchs durch das Rohr das Gesamtvolumen $V$ der Apparatur verändert hat. 
-- Diskutieren Sie Ihre Ergebnisse und vergleichen Sie den von Ihnen bestimmten Wert für $L$ mit der Erwartung nach der [Knudsen-Gleichung](https://en.wikipedia.org/wiki/Knudsen_equation) (Gleichung **(7)** [hier](https://gitlab.kit.edu/kit/etp-lehre/p2-praktikum/students/-/blob/main/Vakuum/doc/Hinweise-Vakuum.md)).
+- Diskutieren Sie Ihre Ergebnisse und vergleichen Sie den von Ihnen bestimmten Wert für $L$ mit der Erwartung nach der [Knudsen-Gleichung](https://en.wikipedia.org/wiki/Knudsen_equation) (Gleichung **(4)** [hier](https://gitlab.kit.edu/kit/etp-lehre/p2-praktikum/students/-/blob/main/Vakuum/doc/Hinweise-Vakuum-a.md)).
 - Schalten Sie die DSP nach der Messung ab, belüften Sie RZ und tauschen Sie das Metallrohr wieder gegen den Metallwellschlauch aus.
 
 ### Aufgabe 2.3: Saugvermögen der TMP
@@ -77,11 +77,11 @@ Für diese Aufgabe führen Sie ein einstufiges, statisches Kalibrierungsverfahre
   \end{equation*}
   ```
 
-  des Systems. Schätzen Sie für die Messwerte $p_{i}$ geeignete Unsicherheiten ab. Es sollte sich ein perfekter linearer Zusammenhang einstellen. Überlegen Sie sich die Gründe für eventuelle Abweichungen.
+  des Systems. Schätzen Sie für die Messwerte $p_{i}$ geeignete Unsicherheiten ab. Es sollte sich ein linearer Zusammenhang einstellen. Überlegen Sie sich die Gründe für eventuelle Abweichungen.
 
 Für den Druck nach einer Iteration gilt: 
 $$
-\begin{equation*}
+\begin{equation}
 \begin{split}
 &\bigl(p_{\mathrm{RZ}}+\Delta p\bigr)\,\bigl(V_{\mathrm{RZ}}+V_{\mathrm{RV}}\bigr) = \bigl(n_{\mathrm{RZ}}+n_{\mathrm{RV}}\bigr)\,R\,T; \\
 &\\
@@ -92,13 +92,15 @@ n_{\mathrm{RV}} = \frac{p_{0}\,V_{\mathrm{RV}}}{R\,T} \\
 &\\
 &\bigl(p_{\mathrm{RZ}}+\Delta p\bigr)\,\bigl(V_{\mathrm{RZ}}+V_{\mathrm{RV}}\bigr) = p_{\mathrm{RZ}}\,V_{\mathrm{RZ}}+p_{0}\,V_{\mathrm{RV}};\\
 &\\
-&V_{\mathrm{RV}} = \frac{\Delta p\,V_{\mathrm{RZ}}}{p_{0}-\left(p_{\mathrm{RZ}}-\Delta p\right)}\approx\frac{\Delta p\,V_{\mathrm{RZ}}}{p_{0}}; \\
+&V_{\mathrm{RV}} = \frac{\Delta p\,V_{\mathrm{RZ}}}{p_{0}-\left(p_{\mathrm{RZ}}+\Delta p\right)}\approx\frac{\Delta p\,V_{\mathrm{RZ}}}{p_{0}}; \\
 &\\
-&\epsilon=\frac{\Delta p}{p_{0}}\approx\frac{V_{\mathrm{RZ}}}{V_{\mathrm{RV}}}. \\
+&\epsilon=\frac{\Delta p}{p_{0}}\approx\frac{V_{\mathrm{RV}}}{V_{\mathrm{RZ}}}, \\
 \end{split}
-\end{equation*}
+\end{equation}
 $$
-Vergleichen Sie Ihr Ergebnis mit dieser Erwartung. Beziehen Sie in Ihre Diskussion den $\chi^{2}$-Wert der Anpassung mit ein.  
+wobei $p_{\mathrm{RZ}}$ und $V_{\mathrm{RZ}}$ dem Druck und Volumen im Rezipienten und $V_{\mathrm{RV}}$ dem Referenzvolumen entsprechen. Vergleichen Sie Ihr Ergebnis mit dieser Erwartung. Beziehen Sie in Ihre Diskussion den $\chi^{2}$-Wert der Anpassung mit ein. 
+
+**NB:** Aus der Näherung in Gleichung **(1)** können Sie abschätzen, dass $\Delta p$ mit zunehmender Anzahl an Iterationen abnehmen sollte. Für $p_{\mathrm{RZ}}\approx80\ \mathrm{mbar}$ liegt der Effekt bereits bei ${\approx 8\%}$.  
 
 ### Aufgabe 3.2: Elektrische Durchschlagfestigkeit
 
@@ -120,16 +122,16 @@ Sie können $\lambda$, wie für den [Franck-Hertz-Versuch](https://gitlab.kit.ed
 $$
 \begin{equation*}
 \begin{split}
-&\lambda = \frac{1}{\sigma\,n} = \frac{R\,T}{\sigma\,p_{\mathrm{RZ}}V_{\mathrm{RZ}}};\\
+&\lambda = \frac{1}{\sigma\,n} = \frac{k_{B}\,T}{\sigma\,p_{\mathrm{RZ}}};\\
 &\\
 &\text{mit:}\\
 &\\
-&\sigma= \pi\,R^{2};\qquad R=\sqrt[3]{\frac{3}{4\pi}V};
-\qquad V= \frac{M_{m}(\mathrm{N}_{2})\,f}{N_{A}\,\rho_{\mathrm{fl}}},\\
+&\sigma= \pi\,r^{2};\qquad r=\sqrt[3]{\frac{3}{4\pi}V};
+\qquad V= \frac{M_{m}\,f}{N_{A}\,\rho_{\mathrm{fl}}},\\
 \end{split}
 \end{equation*}
 $$
-wobei $N_{A}$ der [Avogradro-Konstanten](https://de.wikipedia.org/wiki/Avogadro-Konstante),  $M_{m}(\mathrm{N}_{2})$ der [molaren Masse](https://de.wikipedia.org/wiki/Molare_Masse), $\rho_{\mathrm{fl}}=807\ \mathrm{g/\ell}$ der Dichte von flüssigem $\mathrm{N}_{2}$ und $f\approx0.74$ dem Füllfaktor der [dichtesten Kugelpackung](https://de.wikipedia.org/wiki/Dichteste_Kugelpackung) entsprechen. Schätzen Sie daraus und aus der Bestimmung der elektrischen Durchschlagfestigkeit den Abstand der KE ab. 
+wobei $N_{A}$ der [Avogradro-Konstanten](https://de.wikipedia.org/wiki/Avogadro-Konstante),  $M_{m}$ der [molaren Masse](https://de.wikipedia.org/wiki/Molare_Masse), $\rho_{\mathrm{fl}}=807\ \mathrm{g/\ell}$ der Dichte von flüssigem $\mathrm{N}_{2}$ und $f\approx0.74$ dem Füllfaktor der [dichtesten Kugelpackung](https://de.wikipedia.org/wiki/Dichteste_Kugelpackung) entsprechen. Schätzen Sie daraus und aus der Bestimmung der elektrischen Durchschlagfestigkeit den Abstand der KE ab. 
 
 ### Aufgabe 3.3: Aufdampfen von Indium
 
