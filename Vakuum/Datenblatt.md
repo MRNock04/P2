@@ -1,4 +1,4 @@
-# Technische Daten und Inventar für den Versuch Vakuum:
+Technische Daten und Inventar für den Versuch Vakuum:
 
 Für die verschiedenen Aufgaben des Versuchs **Vakuum** stehen Ihnen die folgenden Geräte zur Verfügung: 
 
