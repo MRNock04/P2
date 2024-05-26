@@ -190,7 +190,9 @@ def fit_compton (data, x1 = None, x2 = None, showResult = False, label = None, s
     fit = hist_fit_data(datax, datay, model=compton_edge, limitedparams = ['mu', 'sigma'], mu=mu0, label = label)
     # Plot the results of the fit if desired
     if showResult:
-        Plot(fit)
+        p=Plot(fit)
+        p.plot()
+        plt.show()
     return fit
 
 
