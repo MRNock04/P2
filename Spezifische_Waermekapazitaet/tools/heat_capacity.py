@@ -74,6 +74,8 @@ std       = np.std( rnd_heat_cap, axis=2, ddof=1 )
 fig,ax = plt.subplots()
 ax.plot( T, heat_cap_1D( T,U,I,m,a,b,c,b0,c0 ) )
 ax.fill_between( T, quantiles[0][0], quantiles[2][0], alpha=0.2 )
+ax.set_xlabel(r'Temperatur ($\mathrm{K}$)') 
+ax.set_ylabel(r'Spezifische Wärmekapazität ($\mathrm{J/kg\ K}$)')
 
 idx = np.searchsorted( T, T0 )
 print( T[idx], heat_cap_1D( T[idx],U,I,m,a,b,c,b0,c0), quantiles[1][0][idx], quantiles[0][0][idx]-quantiles[1][0][idx], quantiles[2][0][idx]-quantiles[1][0][idx] )
